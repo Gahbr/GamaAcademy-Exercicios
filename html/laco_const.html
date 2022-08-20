@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criando registro com laço de repetição</title>
+   
+</head>
+<body>
+    <p id="ex"></p>
+
+     <script>
+        const nome = ["Pedro", "Paulo", "Ana", "Flávia", "Luciana", "Nicole"]
+        alert(nome.length)
+
+     /*   for(let contador = 0; contador <=10;contador++){
+        alert(contador)
+       
+       } */
+
+        for (let i = 0; i<nome.length; i++){
+            document.getElementById('ex').innerHTML +=nome[i] +"<br>";
+        }
+
+       
+    </script>
+</body>
+</html>

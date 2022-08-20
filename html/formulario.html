@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de cadastro</title>
+    
+</head>
+<body>
+
+ <!--    
+    <form >
+        <input type="submit" onclick="mensagem()" value="Click" >
+    </form>
+    -->
+
+    <form name="cadastro" method="get">
+        <label>Nome:</label>
+        <input type="text" name="nome"><br><br>
+        <label>Senha:</label>
+        <input type="password" name="senha"> <br><br>
+        <label>Senha de confirmação:</label>
+        <input type="password" name="senha2">
+        <input type="submit" onclick="return validar()" value="Enviar">
+    </form>
+
+
+    <script>
+        function mensagem(){
+            console.log("executando uma função em JS")
+        }
+
+        function validar(){
+            let campoNome = cadastro.nome.value;
+            let campoSenha = cadastro.senha.value;
+            // let campoSenha = document.getElementById('senha')
+            let campoSenha2 = cadastro.senha2.value;
+         /*    
+            if(campoNome ==''){
+                alert("Por favor, preencha o campo nome é obrigatório");
+                cadastro.nome.focus();
+                return false;
+            }else {
+                alert(`Olá ${campoNome}, seja bem vindo`)
+            }
+            alert(campo);
+
+ */
+                
+
+            if( !campoSenha || campoSenha.length<=5){
+                alert("A senha deverá ter mais de 5 caracteres")
+                cadastro.senha.focus();
+                return false;
+                
+            } else {
+                alert(campoSenha);
+                console.log(campoSenha);
+
+                if ( !campoSenha2 || campoSenha2.length<=5){
+                    alert("A senha de confirmação deverá ter mais de 5 caracteres")
+                    cadastro.senha.focus();
+                    return false
+                } else{
+                    if(campoSenha2 != campoSenha){
+                        alert("A senha principal não está de acordo com a senha de confimação")
+                        cadastro.senha.focus();
+                        return false;
+                    } else{
+                        alert("Concluído! As senhas são válidas.")
+                    }
+                }
+                return false;
+                
+                
+            }
+    
+           
+            
+
+
+
+
+
+
+
+
+
+            
+
+        }
+    </script>
+</body>
+</html>

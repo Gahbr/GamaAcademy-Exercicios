@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Criando a nossa intervenção em Javascript -->
+
+    <script>
+        /* 
+        let nome = prompt("Qual o seu nome?")
+        let idade = prompt(`Qual sua idade, ${nome}`)
+        let email = prompt("Qual seu e-mail?")
+        alert(`Nome ${nome} Idade: ${idade} E-mail ${email}`)
+         */
+    </script>
+    <style>
+        p{
+            color:darkred
+        }
+    </style>
+    <title>Página em Javascript</title>
+</head>
+<body>
+    <h1>Usando o javascript para criar uma intervenção com o nosso HTML</h1>
+    <p class="java"></p>
+    <p id="texto"></p>
+    <p id="texto1" class="java"></p>
+  
+
+    <script>
+        // Insere um texto na tag desejada
+        document.getElementsByTagName("p")[0].innerHTML = "Olá"
+        //Insere um texto no id que está sendo relacionado
+        document.getElementById('texto').innerHTML = "Ola, boa noite"
+        document.getElementById('texto1').innerHTML = "Vamos codarrrrr"
+        
+        //Inserir um conteúdo na classe criada
+        document.getElementsByClassName('java')
+        collection[0].innerHTML = "Hallo"
+        
+
+    </script>
+</body>
+</html>
