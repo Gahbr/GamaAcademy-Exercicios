@@ -97,14 +97,19 @@
 
         function igual(){
             try {
+                var history = [];
                 var res=  eval(document.getElementById("display").textContent);
                 document.getElementById('display').innerHTML= res;
+                history.push(res)
             } catch (error) {
                 alert("Erro de sintaxe, tente novamente.");
                 console.log(error)
             }
         }
         
+        function historico(){
+            alert(history)
+        }
     </script>
 </head>
 <body>
