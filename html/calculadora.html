@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Calculadora</title>
 
     <!-- Criar o estilo do display -->
@@ -14,11 +15,16 @@
             align-items: center;
             
         }
+        .calc-borda{
+            border: 20px solid black;
+            padding: 20px;
+        }
         #display{
             width: 400px;
             height: 40px;
             background-color: black;
             margin: 4px;
+            padding-left: 10px;
             color: white;
             font-size: 18px;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -71,6 +77,9 @@
 
     <!-- Funções para a calculadora -->
     <script>
+        var historicoCalc = [];
+        var expressaoCalc = '';
+
         function inserir (num){
             var numero =  document.getElementById('display').innerHTML;
             var ult = document.getElementById('display').innerText;
@@ -97,24 +106,37 @@
 
         function igual(){
             try {
-                var history = [];
                 var res=  eval(document.getElementById("display").textContent);
+                expressaoCalc = document.getElementById("display").textContent;
                 document.getElementById('display').innerHTML= res;
-                history.push(res)
+                historicoCalc.push(`${expressaoCalc} = `+ parseFloat(  document.getElementById('display').innerHTML))
+                
             } catch (error) {
                 alert("Erro de sintaxe, tente novamente.");
+                limpar();
                 console.log(error)
             }
         }
         
         function historico(){
-            alert(history)
+           // alert(historicoCalc)
+            document.getElementById('id01').style.display='block';
+            for (let i = 0; i<historicoCalc.length; i++){
+            document.getElementById('histModal').innerHTML +=historicoCalc[i] +"<br>";
         }
+        }
+
+        function sairModal(){
+            document.getElementById('id01').style.display='none'
+            document.getElementById('histModal').innerHTML= ''
+        }
+        
     </script>
 </head>
 <body>
     <h1>Calculadora</h1>
     <!-- Criando o nosso display da calculadora -->
+    <div class="calc-borda">
     <p id="display"></p>
 
     <!-- Criando os botões de interação da calculadora -->
@@ -144,10 +166,26 @@
           <button type="button" value="0" onclick="inserir('0')">0</button>
           <button type="button" class="decimal" value="."  onclick="inserir('.')">.</button>
           <button type="button" class="igual" onclick="igual()" value="=">=</button>
-          <button type="button" class="historico" onclick="historico()" value="@">@</button>
+          <button type="button" class="w3-button w3-light-gray w3-hover-light-gray" onclick="historico()" value="@">&#128269</button>
         
         </div>
     </div>
+</div>
+
+<!-- MODAL -->
+<div id="id01" class="w3-modal w3-animate-opacity ">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+      <header class="w3-container w3-blue"> 
+        <span onclick="sairModal()" 
+        class="w3-button w3-large w3-display-topright">&times;</span>
+        <h2>Histórico</h2>
+      </header>
+      <div class="w3-container">
+        <p id="histModal"></p>
+       
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
