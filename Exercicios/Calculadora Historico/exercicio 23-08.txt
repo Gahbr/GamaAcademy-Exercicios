@@ -1,0 +1,22 @@
+EX 23/08
+
+Na sua calculadora, você deverá 
+implementar a nossa rotina para 
+salvar o histórico em um arquivo
+txt.
+
+O nome do arquivo deverá ser historico.txt
+
+E na própria estrutura da calculadora,
+você poderá escolher o arquivo de histórico que foi armazenado o seu cálculo.
+
+
+Enviar o link da aplicação para o e-mail: ricardoalexandrebontempo@gmail.com
+
+-------------------------------
+
+Dica:
+async: A palavra async antes de uma função significa que a função sempre retorna uma promise. Outros valores serão agrupados em uma promise resolvida automaticamente. Por exemplo, esta função async retorna uma promise resolved com a string “Ola Mundo”: async function funcaoAsync() {. return 'Ola Mundo';
+
+E o await
+O operador await é utilizado para esperar por uma Promise. Ele pode ser usado apenas dentro de uma async function.
