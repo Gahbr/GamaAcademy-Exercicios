@@ -15,15 +15,20 @@
 <body>
     <!-- Adicionando registros na nossa página -->
     <h1>Sistema de Controle de Registros - CRUD</h1>
+    <h2>Estoque de produtos Eletrônicos</h2>
     <form action="javascript:void(0);" method="POST" onsubmit="app.Add()">
-        <input type="text" id="add-name" placeholder="Digite um nome">
+        <input type="text" id="add-produto" placeholder="Digite o produto">
+        <input type="text" id="add-valor" placeholder="Digite o valor unitário">
+        <input type="text" id="add-quantidade" placeholder="Digite a quantidade">
         <input type="submit" value="Adicionar">
     </form>
 
     <!-- Área destinada para editar/modificar os registros,  -->
     <div id="spoiler" role="aria-hidden">
         <form action="javascript:void(0);" method="POST" id="saveEdit">
-            <input type="text" id="edit-name">
+            <input type="text" id="edit-produto">
+            <input type="text" id="edit-valor">
+            <input type="text" id="edit-quantidade">
             <input type="submit" value="Editar" /><a onclick="CloseInput()" aria-label="Close"> &#10006</a>
 
         </form>
@@ -39,12 +44,23 @@
             <tbody id="countries"></tbody>
     </tr>
     </table>
-///////
+
+    <button onclick="gravar()">Gravar!</button>
+
     <!-- Desenvolvendo as funções dentro do JS para gerar o CRUD -->
     <script>
         var app = new function(){
             this.el = document.getElementById('countries');
-            this.countries = ['Erica', 'Ailson', 'Gilmar','Vagner','Victor','Ricardo'];
+            this.countries = [{
+                produto: 'Mouse',
+                valor: 35,
+                quantidade:10
+            },
+            {
+                produto: 'Teclado',
+                valor: 100,
+                quantidade:3
+            }];
 
             this.Count = function(data){
                 var el = document.getElementById('counter')
@@ -63,53 +79,77 @@
 
         // Monta a nossa lista de nomes com base na variável que foi setada
             this.FetchAll = function (){
+                
                 var data = '';
+              
                 if(this.countries.length>0){
                     // Criando um laço de repetição para mostrar os registros das tabelas
                     for(i=0; i<this.countries.length; i++){
+                        var calculo = (this.countries[i].quantidade) * (this.countries[i].valor);
+
                         data +='<tr>';
-                        data +='<td>' + this.countries[i] + '<td>';
+                        data +='<td class = "dadosProdutos">'+"<b>Produto: </b>" + this.countries[i].produto + " <b>Valor: </b> R$"+ this.countries[i].valor +" <b>Quantidade: </b>" +this.countries[i].quantidade  + " <b>Total:</b> R$ " + calculo+ '<td>';
                         data += '<td><button onclick = "app.Edit('+i+')">Editar</button></td>';
                         data += '<td><button onclick = "app.Delete('+i+')">Deletar</button></td>';
                         data +='</tr>';
                     }
                 }
                 this.Count(this.countries.length);
+                
                 return this.el.innerHTML = data;
             }
 
 
             this.Add = function (){
-                el = document.getElementById('add-name');
+                el = document.getElementById('add-produto');
+                el2= document.getElementById('add-valor');
+                el3= document.getElementById('add-quantidade');
+                
 
                 //Pegando o valor digitado na caixa de texto
-                var country = el.value;
-                if(country) {
+                var prod = el.value;
+                var valorUn=  el2.value;
+                var quant=  el3.value;
+
+                if(prod && valorUn && quant) {
                     //Add um novo valor
-                    this.countries.push(country.trim());
-                    
+                    this.countries.push({produto:prod, valor:valorUn, quantidade:quant});
+                  
                     //Redefinindo um valor de entrada
                     el.value =''
+                    el2.value =''
+                    el3.value =''
                     this.FetchAll();
-                }
+
+                } else{ alert("Todos os campos devem ser preenchidos!") }
             }
           
             //Mostrando a nossa função para editar os registros
             this.Edit = function (item){
              
-                var  el = document.getElementById('edit-name');
+                var el = document.getElementById('edit-produto');
+                var el2 = document.getElementById('edit-valor');
+                var el3 = document.getElementById('edit-quantidade');
                 //Exibe o valor adicionado ao campo
                
-                el.value = this.countries[item];
+                el.value = this.countries[item].produto;
+                el2.value = this.countries[item].valor;
+                el3.value = this.countries[item].quantidade;
                  //Mostrar o campo que está sendo selecionado
                 document.getElementById('spoiler').style.display = 'block';
 
                 document.getElementById('saveEdit').onsubmit= () => {
                     //obtendo o valor do campo
-                    var country = el.value;
-                    if(country ){
+                    var produto = el.value;
+                    var valor = el2.value;
+                    var quantidade = el3.value;
+
+                    if(produto ){
                         //Editar um valor
-                        this.countries.splice(item,1,country.trim())
+                       this.countries[item].produto = produto;
+                       this.countries[item].valor = valor;
+                       this.countries[item].quantidade = quantidade
+                     
                         //Chamada da lista para atualizar o valor digitado do campo
                         this.FetchAll();
                         //Ocultar os campos
@@ -132,6 +172,26 @@
             function CloseInput(){
                 document.getElementById('spoiler').style.display = 'none'
             }
+
+            function gravar(){
+             
+              var dados =   document.getElementsByClassName('dadosProdutos');
+              var texto="";
+              var titulo = "Registros dos produtos eletrônicos";
+
+              for (let i = 0; i < dados.length; i++) {
+               // console.log(dados[i].textContent)
+               texto += dados[i].textContent + "\r\n";
+              }
+               console.log(texto)
+
+                let blob = new Blob([texto], {
+                    type: "text/plain;charset=utf-8"
+                });
+
+                saveAs(blob, titulo + ".txt");
+            }
     </script>
+    <script src="./javascript/FileSaver.js"></script>
 </body>
 </html>
