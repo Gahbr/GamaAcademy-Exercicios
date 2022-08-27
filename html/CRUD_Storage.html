@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD com Storage</title>
+
+    <!-- Fizemos a chamada de uma anotação para componentes JSON -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"
+    ></script>
+
+    <!-- Chamada da nossa biblioteca -->
+    <script src="../javascript/funcoes.js"></script>
+    
+</head>
+<body>
+    
+    <!-- Formulario para cadastro de clientes -->
+    <form id="frmCadastro">
+        <label for="txtCodigo">Código</label>
+        <input type="text" id="txtCodigo"><br>
+
+       <label for="txtNome">Nome</label>
+       <input type="text" id="txtNome"><br>
+        
+       <label for="txtTelefone">Telefone</label>
+       <input type="text" id="txtTelefone"><br>
+
+       <label for="txtEmail">Email</label>
+       <input type="email" id="txtEmail"><br>
+
+       <label for="txtStatus">Status</label>
+       <input type="text" id="txtStatus"><br>
+
+       <label for="txtDataCadastro">Data Cadastro:</label>
+       <input type="date" id="txtDataCadastro"><br>
+
+      <input type="submit" value="Salvar" id="btnSalvar">
+    </form>
+    <br>
+
+    <!-- Criando uma tabela para apresentar os registros cadastrados -->
+    <table id="tbListar" border="1">
+        
+
+    </table>
+
+    <p id="prgForm"></p>
+</body>
+</html>
