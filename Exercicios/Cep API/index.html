@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de consulta de CEP</title>
+    <link rel="stylesheet" href="styles/style.css"
+</head>
+<body>
+    <h1>Sistema de consulta de CEP</h1>
+   <label > Nome do cliente </label> 
+   <input type="text"  placeholder ="Nome do cliente a ser consultado" id="textoNome"> <br><br>
+   
+
+    <form class="busca">
+        <label>Entre com o cep a ser consultado: </label>
+        <input type="search" name="textoCep" id="textoCep">
+        <button >Processar</button>
+        <button onclick="limpar()">Limpar</button>
+    </form>
+   
+
+    <p>Endereço: <input type="text" disabled   id="endereco"></p>
+    <p>Bairro: <input type="text" disabled id="bairro"></p>
+    <p>CEP: <input type="text" disabled id="cep"></p>
+    <p>Estado: <input type="text" disabled id="estado"></p>
+    <p>Cidade: <input type="text" disabled id="cidade"></p>
+   
+
+    <script src="js/script.js"></script>
+</body>
+</html>
