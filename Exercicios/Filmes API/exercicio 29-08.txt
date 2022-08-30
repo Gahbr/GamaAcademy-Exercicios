@@ -1,0 +1,10 @@
+Criar a chamada da api
+
+API - Filmes
+https://api.tvmaze.com/search/shows?q=star%20wars
+
+Retornar as linhas com  os nomes dos filmes em uma tabela abaixo:
+
+Nome dos Filmes		
+United States		
+Star Wars: Rebels

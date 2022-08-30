@@ -1,0 +1,20 @@
+body{
+  background-color: lightyellow;
+}
+
+h1,div{
+  display: flex;
+  justify-content: center;
+}
+
+table {
+ 
+    border: 2px solid black;
+    border-radius: 2rem;
+    padding: 20px;
+  }
+
+  th{
+ 
+    font-size: 20px;
+  }
