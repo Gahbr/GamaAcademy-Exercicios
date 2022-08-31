@@ -1,0 +1,4 @@
+Digitar o número de um salmo, e processar
+Se por acaso não for digitado um número correspondente, retornar um alert salmo não encontrado
+Ou se digitar um texto no lugar do número alertar o usuário
+Se existir o salmo, com base no nosso wireframe da interface, preencher os campos abaixo, e montar a tabela com os versos.
