@@ -1,0 +1,11 @@
+Módulo Livro
+Nome_Livro
+Quantidade_Livro
+Valor_Unitario
+
+
+Programa para chamar o módulo
+Mostrar o nome do livro e o valor bruto em estoque calculado
+
+
+Quantidade_Livro*Valor_Untario
