@@ -1,0 +1,20 @@
+
+
+Exercicio 01
+---
+Criar dentro do módulo inserir registros um vetor que irá conter os campos abaixo:Nome e Endereço
+
+[
+Rita Rua Fábia, 1000
+Ana  Rua Catão,902
+Nicole Rua Taipas,920
+Romulo Rua das Cruzes,100
+]
+
+dentro do modulo de inserção de registros, criar um laço de repetição para inserir os dados do vetor na tabela
+
+
+------------
+Exercicio 02
+--
+Excluir através do desenvolvimento do módulo delete.js para excluir o registros Rita
